@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alex · 个人简历主页</title>
-    <!-- 替换国内CDN，苹果iOS正常加载图标字体 -->
+    <!-- 国内CDN图标，iOS稳定加载 -->
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -23,6 +23,11 @@
         .container {
             max-width: 1100px;
             margin: 0 auto;
+        }
+        /* 贪吃蛇容器居中 */
+        .snake-box{
+            text-align:center;
+            margin-bottom:30px;
         }
         /* 毛玻璃卡片样式 */
         .card {
@@ -77,6 +82,11 @@
 </head>
 <body>
     <div class="container">
+        <!-- 页面顶部贪吃蛇动画 -->
+        <div class="snake-box">
+            <img src="https://github.com/Platane/snk/output/github-contribution-grid-snake.svg" alt="贪吃蛇跑动动画">
+        </div>
+
         <!-- 头部个人信息卡片 -->
         <div class="card">
             <h1>Alex</h1>

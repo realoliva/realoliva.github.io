@@ -14,7 +14,7 @@
         }
         body {
             font-family: system-ui, -apple-system, sans-serif;
-            background: linear-gradient(135deg,#4158D0,#C850C0);
+            background: transparent; /* 背景完全透明 */
             color: #1e293b;
             line-height: 1.5;
             padding: 2rem 1.5rem;
@@ -29,19 +29,22 @@
             text-align:center;
             margin-bottom:30px;
         }
-        /* 毛玻璃卡片样式 */
+        /* 灵动毛玻璃卡片 优化通透质感 */
         .card {
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(2px);
-            border-radius: 2rem;
-            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.15);
+            background: rgba(255, 255, 255, 0.75); /* 降低白色透明度，更通透 */
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px); /* 兼容苹果手机毛玻璃 */
+            border-radius: 1.8rem;
+            box-shadow: 0 8px 30px rgba(60, 79, 217, 0.12);
             padding: 2rem 1.8rem;
             margin-bottom: 24px;
-            transition: transform 0.2s ease, box-shadow 0.3s;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.5); /* 细微白边增加精致感 */
         }
+        /* hover悬浮灵动效果：上浮+扩阴影+轻微放大 */
         .card:hover{
-            transform: translateY(-5px);
-            box-shadow: 0 24px 40px -10px rgba(0,0,0,0.18);
+            transform: translateY(-8px) scale(1.015);
+            box-shadow: 0 15px 45px rgba(60, 79, 217, 0.18);
         }
         h1{
             font-size: 28px;
@@ -58,14 +61,18 @@
             color:#555;
             margin-bottom:16px;
         }
-        /* 技能标签 */
+        /* 技能标签微调柔和 */
         .skill-tag{
             display:inline-block;
-            background:#dbeafe;
+            background:rgba(219, 234, 254,0.7);
             color:#2563eb;
             padding:5px 12px;
             border-radius:99px;
             margin:4px 5px;
+            transition:0.2s;
+        }
+        .skill-tag:hover{
+            background:#dbeafe;
         }
         ul{
             padding-left:22px;
@@ -82,7 +89,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- 页面顶部贪吃蛇动画【已替换国内ghproxy代理链接，解决无法加载】 -->
+        <!-- 页面顶部贪吃蛇动画【国内代理链接】 -->
         <div class="snake-box">
             <img src="https://mirror.ghproxy.com/https://raw.githubusercontent.com/Platane/snk/output/github-contribution-grid-snake.svg" alt="贪吃蛇跑动动画">
         </div>

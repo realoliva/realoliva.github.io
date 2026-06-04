@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alex · 个人简历主页</title>
-    <!-- 国内CDN图标，iOS稳定加载 -->
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -13,8 +12,8 @@
             box-sizing: border-box;
         }
         body {
-            font-family: system-ui, -apple-system, sans-serif;
-            background: transparent; /* 背景完全透明 */
+            font-family: -apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+            background: transparent;
             color: #1e293b;
             line-height: 1.5;
             padding: 2rem 1.5rem;
@@ -24,27 +23,35 @@
             max-width: 1100px;
             margin: 0 auto;
         }
-        /* 贪吃蛇容器居中 */
         .snake-box{
             text-align:center;
-            margin-bottom:30px;
+            margin-bottom:32px;
         }
-        /* 灵动毛玻璃卡片 优化通透质感 */
+        /* iOS液态玻璃核心样式 */
         .card {
-            background: rgba(255, 255, 255, 0.75); /* 降低白色透明度，更通透 */
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px); /* 兼容苹果手机毛玻璃 */
-            border-radius: 1.8rem;
-            box-shadow: 0 8px 30px rgba(60, 79, 217, 0.12);
+            /* 液态玻璃底色：超低透明度 */
+            background: rgba(255,255,255,0.42);
+            /* 双层毛玻璃，仿iOS流体虚化 */
+            backdrop-filter: blur(22px) saturate(180%);
+            -webkit-backdrop-filter: blur(22px) saturate(180%);
+            /* 细微内外发光模拟液态折射 */
+            border: 1px solid rgba(255,255,255,0.55);
+            border-radius: 26px;
+            box-shadow: 
+                0 4px 22px rgba(0,0,0,0.06),
+                inset 0 1px 0 rgba(255,255,255,0.65);
             padding: 2rem 1.8rem;
-            margin-bottom: 24px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.5); /* 细微白边增加精致感 */
+            margin-bottom:26px;
+            /* 流体缓动动画 */
+            transition: all 0.35s cubic-bezier(0.2,0,0.2,1);
         }
-        /* hover悬浮灵动效果：上浮+扩阴影+轻微放大 */
+        /* hover 液态上浮拉伸，iOS灵动弹跳 */
         .card:hover{
-            transform: translateY(-8px) scale(1.015);
-            box-shadow: 0 15px 45px rgba(60, 79, 217, 0.18);
+            transform: translateY(-9px) scale(1.018);
+            background: rgba(255,255,255,0.52);
+            box-shadow: 
+                0 12px 38px rgba(0,0,0,0.09),
+                inset 0 1px 0 rgba(255,255,255,0.75);
         }
         h1{
             font-size: 28px;
@@ -61,18 +68,20 @@
             color:#555;
             margin-bottom:16px;
         }
-        /* 技能标签微调柔和 */
+        /* 标签同步液态玻璃 */
         .skill-tag{
             display:inline-block;
-            background:rgba(219, 234, 254,0.7);
+            background:rgba(219, 234, 254,0.35);
+            backdrop-filter: blur(10px);
+            border:1px solid rgba(255,255,255,0.5);
             color:#2563eb;
             padding:5px 12px;
             border-radius:99px;
             margin:4px 5px;
-            transition:0.2s;
+            transition:0.25s;
         }
         .skill-tag:hover{
-            background:#dbeafe;
+            background:rgba(219, 234, 254,0.55);
         }
         ul{
             padding-left:22px;
@@ -89,25 +98,21 @@
 </head>
 <body>
     <div class="container">
-        <!-- 页面顶部贪吃蛇动画【国内代理链接】 -->
         <div class="snake-box">
             <img src="https://mirror.ghproxy.com/https://raw.githubusercontent.com/Platane/snk/output/github-contribution-grid-snake.svg" alt="贪吃蛇跑动动画">
         </div>
 
-        <!-- 头部个人信息卡片 -->
         <div class="card">
             <h1>Alex</h1>
             <div class="info-text">大数据专业在读 | 求职：数据分析/数据处理实习</div>
             <div class="contact-item"><i class="fa-solid fa-envelope"></i>邮箱：2635989464@qq.com</div>
         </div>
 
-        <!-- 教育经历 -->
         <div class="card">
             <h2>📖 教育经历</h2>
             <p>全日制大专｜大数据技术专业｜在读</p>
         </div>
 
-        <!-- 专业技能 -->
         <div class="card">
             <h2>🛠️ 专业技能</h2>
             <div>
@@ -119,7 +124,6 @@
             </div>
         </div>
 
-        <!-- 项目经历 -->
         <div class="card">
             <h2>💻 项目经历</h2>
             <ul>
@@ -128,7 +132,6 @@
             </ul>
         </div>
 
-        <!-- 自我评价 -->
         <div class="card">
             <h2>✨ 自我评价</h2>
             <p>专注大数据方向持续学习，熟练基础数据处理，擅长Python与SQL入门开发，踏实好学，寻找大数据相关实习岗位。</p>

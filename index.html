@@ -26,6 +26,19 @@
         .snake-box{
             text-align:center;
             margin-bottom:32px;
+            overflow:hidden;
+            border-radius:16px;
+            background:rgba(255,255,255,0.35);
+            backdrop-filter:blur(12px);
+            padding:12px;
+        }
+        .snake-box img{
+            display:block;
+            width:100%;
+            max-width:920px;
+            height:auto;
+            margin:0 auto;
+            border-radius:10px;
         }
         /* iOS液态玻璃核心样式 */
         .card {
@@ -110,7 +123,12 @@
 <body>
     <div class="container">
         <div class="snake-box">
-            <img src="https://mirror.ghproxy.com/https://raw.githubusercontent.com/Platane/snk/output/github-contribution-grid-snake.svg" alt="贪吃蛇跑动动画">
+            <img
+              src="assets/snake.svg"
+              alt="GitHub 贡献贪吃蛇动画"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/realoliva/realoliva.github.io/main/assets/snake.svg';"
+            />
         </div>
 
         <div class="card">

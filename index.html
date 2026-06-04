@@ -30,15 +30,41 @@
             border-radius:16px;
             background:rgba(255,255,255,0.35);
             backdrop-filter:blur(12px);
-            padding:12px;
+            padding:12px 14px 14px;
+            border:1px solid rgba(255,255,255,0.5);
         }
-        .snake-box img{
+        .snake-hud{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            gap:10px 18px;
+            margin-bottom:10px;
+            font-size:13px;
+            color:#475569;
+        }
+        .snake-hud b{
+            color:#3c4fd9;
+        }
+        .snake-hud-victory{
+            color:#b45309;
+            font-weight:700;
+            font-size:14px;
+            animation:snake-pulse 0.6s ease-in-out infinite alternate;
+        }
+        @keyframes snake-pulse{
+            from{ opacity:0.85; transform:scale(0.98); }
+            to{ opacity:1; transform:scale(1.02); }
+        }
+        #snakeCanvas{
             display:block;
-            width:100%;
-            max-width:920px;
-            height:auto;
             margin:0 auto;
             border-radius:10px;
+            box-shadow:0 8px 28px rgba(15,23,42,0.25);
+        }
+        .snake-caption{
+            margin-top:8px;
+            font-size:12px;
+            color:#64748b;
         }
         /* iOS液态玻璃核心样式 */
         .card {
@@ -123,12 +149,9 @@
 <body>
     <div class="container">
         <div class="snake-box">
-            <img
-              src="assets/snake.svg"
-              alt="GitHub 贡献贪吃蛇动画"
-              loading="lazy"
-              onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/realoliva/realoliva.github.io/main/assets/snake.svg';"
-            />
+            <div class="snake-hud" id="snakeHud">加载贪吃蛇…</div>
+            <canvas id="snakeCanvas" aria-label="经典贪吃蛇自动闯关动画"></canvas>
+            <p class="snake-caption">🐍 自动闯关 · 一直吃 · 铺满格子 · 最强模式</p>
         </div>
 
         <div class="card">
@@ -175,5 +198,6 @@
             <p>专注大数据方向持续学习，具备 Python / SQL 数据处理与 Web 前端项目实践经验；独立完成简谱工作室等可在线访问作品。踏实好学，寻找数据分析、数据处理或前端相关实习岗位。</p>
         </div>
     </div>
+    <script src="assets/snake-game.js"></script>
 </body>
 </html>
